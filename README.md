@@ -19,3 +19,6 @@ engine.py: contém os movimentos da máquina para tentar ganhar o jogo.
 <h4>Considerações Finais</h4>
 Este é apenas um exemplo simples de como usar POO em um projeto de programação. O jogo da velha é um problema clássico de programação e é fácil de entender, mas os mesmos conceitos podem ser aplicados a projetos muito mais complexos. Espero que este exemplo tenha sido útil para você entender como POO funciona em Python.
 Segue a imagem do jogo.
+
+![Captura de tela 2023-04-18 002045](https://user-images.githubusercontent.com/51519605/232662808-d8743edf-a3a6-46a5-935f-814666f5a4bf.png)
+![Captura de tela 2023-04-18 002112](https://user-images.githubusercontent.com/51519605/232662832-2e03fce5-3cc4-4e21-ac9a-6db271ef46cc.png)
