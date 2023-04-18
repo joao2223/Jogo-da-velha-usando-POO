@@ -1,0 +1,62 @@
+'''Representação do tabuleiro do jogo da velha '''
+
+
+from enum import IntEnum 
+
+
+class Estadojogo(IntEnum):
+    '''Os varios estados possiveis de um espaco'''
+
+    EMPTY = 0
+    humano = 1
+    MACHINE = 2
+
+
+class Jogodavelha:
+    '''Representa um estado do tabuleiro do jogo da velha.'''
+
+    def __init__(self):
+        '''Inicializa um tabuleiro com todos os espacos vazios.'''
+
+        self._estado = [[Estadojogo.EMPTY for _ in range(3)] for _ in range(3)]
+        self._ultimo_mov = None
+        self.vencedor = None
+
+    def busca_espaco(self, r, c):
+        '''Returns the state of a cell.'''
+
+        return self._estado[r][c]
+
+    def escolhe_espaco(self, r, c, value):
+        '''Define o estado do espaco (r, c) para o valor fornecido.'''
+
+        self._estado[r][c] = value
+        self._ultimo_mov = (r, c, value)
+
+    def has_finished(self):
+        '''Verifica se o último movimento para o espaco (r, c) terminou o jogo'''
+
+        # Se não houver um ultimo movimento,então ainda estamos a começar.
+        if self._ultimo_mov is None:
+            return False
+
+        # Uma funcao auxiliar.
+        def win(cells):
+            '''Verifica se os 3 espacos dados nao estao vazios e são do mesmo estado.'''
+            first = cells[0]
+            return (first != Estadojogo.EMPTY and
+                    cells[1] == first and
+                    cells[2] == first)
+
+        r, c, player = self._ultimo_mov
+        # Verifica se ha uma vitoria.        
+        if (win(self._estado[r]) or
+            win([self._estado[i][c] for i in range(3)]) or
+            (r == c) and win([self._estado[i][i] for i in range(3)]) or
+            (r + c == 2) and win([self._estado[i][2-i] for i in range(3)])):
+            self.vencedor = player
+            return True
+
+        # Se não for uma vitoria, so termina se nao houver espacos vazios.
+        return not any(self._estado[i][j] == Estadojogo.EMPTY 
+                       for i in range(3) for j in range(3))
