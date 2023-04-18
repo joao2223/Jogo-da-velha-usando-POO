@@ -8,6 +8,7 @@ Para jogar, basta executar o arquivo main.py. Será exibido um tabuleiro vazio d
 O jogo termina quando um dos jogadores consegue formar uma linha, coluna ou diagonal com suas peças ou quando todas as posições do tabuleiro estiverem preenchidas. Se houver um vencedor, será exibida uma mensagem indicando quem ganhou. Caso contrário, será exibida uma mensagem indicando que o jogo terminou empatado.
 
 <h3>Arquivos</h3>
+
 O projeto consiste em dois arquivos:
 
 main.py: contém a implementação do jogo em si, incluindo a lógica do tabuleiro e a interação com o usuário.
